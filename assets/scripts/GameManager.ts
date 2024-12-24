@@ -18,6 +18,12 @@ export class GameManager extends Component {
     @property(Vec3)
     Openpos: Vec3 | null = null;
 
+    @property(Vec3)
+    andarPos: Vec3 | null = null;
+
+    @property(Vec3)
+    baharPos: Vec3 | null = null;
+
     @property(Label)
     amount: Label|null = null
 
@@ -42,6 +48,21 @@ export class GameManager extends Component {
         tween(this.Stack?.children[40])
         .to(0.5, { position: new Vec3(this.Stack?.children[40].position.x, 50, 0)})
         .to(0.5, { position: new Vec3(this.Openpos!)})
+        .delay(3)
+        .call(() => this.CardAnimation(1))
         .start()
+    }
+
+    CardAnimation(strtIdx: number) {
+        let currentPos = this.andarPos;
+        for(let i=strtIdx; i<(strtIdx + 52); ++i) {
+            this.scheduleOnce(() => {
+
+                tween(this.Stack?.children[i])
+                .to(0.5, { position: currentPos!})
+                .call(() => currentPos!.y === this.andarPos!.y ? currentPos = this.baharPos : currentPos = this.andarPos)
+                .start();
+            }, i)
+        }
     }
 }
