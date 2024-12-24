@@ -56,13 +56,15 @@ export class GameManager extends Component {
     CardAnimation(strtIdx: number) {
         let currentPos = this.andarPos;
         for(let i=strtIdx; i<(strtIdx + 52); ++i) {
-            this.scheduleOnce(() => {
-
-                tween(this.Stack?.children[i])
-                .to(0.5, { position: currentPos!})
-                .call(() => currentPos!.y === this.andarPos!.y ? currentPos = this.baharPos : currentPos = this.andarPos)
-                .start();
-            }, i)
+            if(i != 40) {
+                this.scheduleOnce(() => {
+    
+                    tween(this.Stack?.children[i])
+                    .to(0.5, { position: currentPos!})
+                    .call(() => currentPos!.y === this.andarPos!.y ? currentPos = this.baharPos : currentPos = this.andarPos)
+                    .start();
+                }, i)
+            }
         }
     }
 }
