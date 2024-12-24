@@ -1,6 +1,9 @@
-import { _decorator, Component, director, Label, Sprite, Vec3 } from 'cc';
+import { _decorator, CCInteger, CCString, Component, director, Label, Sprite, Vec3 } from 'cc';
 import { BETS, CHOICES, TIMER } from "./constant";
 const { ccclass, property } = _decorator;
+
+
+let selectedChoice = `andar`
 
 @ccclass('BetScreen')
 export class BetScreen extends Component {
@@ -15,8 +18,10 @@ export class BetScreen extends Component {
     timer: Label | null = null;
     
     duration = TIMER;
+
+    @property(CCInteger)
     selectedBet = 100;
-    selectedChoice = "andar";
+
 
     addBetEffect(event: Event, CustomEventData: any) {
         this.bets.map((bet, index) => {
@@ -34,7 +39,7 @@ export class BetScreen extends Component {
         this.choices.map((choice, index) => {
             if(CustomEventData == (index + 1)) {
                 choice.node.scale = new Vec3(1.3, 1.3, 1.3);
-                this.selectedChoice = CHOICES[index];
+                selectedChoice = CHOICES[index];
             }
             else {
                 choice.node.scale = new Vec3(1.0, 1.0, 1.0)
@@ -49,7 +54,14 @@ export class BetScreen extends Component {
     }
 
     loadGameScene() {
-        director.loadScene("Game");
+        director.loadScene("Game", () => {
+            localStorage.setItem("bet", JSON.stringify(this.selectedBet));
+            localStorage.setItem("choice", selectedChoice);
+        });
+    }
+
+    loadHomeScene() {
+        director.loadScene("Home")
     }
 
     update(dt: number) {
