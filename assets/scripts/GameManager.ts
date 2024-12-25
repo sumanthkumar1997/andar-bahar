@@ -74,14 +74,20 @@ export class GameManager extends Component {
                     tween(this.Stack?.children[i])
                         .to(0.5, { position: currentPos! })
                         .call(() => {
-                            currentPos!.y === this.andarPos!.y ? currentPos = this.baharPos : currentPos = this.andarPos;
                             let currentCardName = this.Stack?.children[i].getComponent(Sprite)?.spriteFrame?.name.split("_")[2] as string;
                             if (currentCardName === this.pickedCard) {
                                 if (this.winLabel) {
+                                    if(currentPos!.y === this.andarPos!.y) {
+                                        this.winLabel.string = "Andar wins"
+                                    }
+                                    else {
+                                        this.winLabel.string = "Bahar wins";
+                                    }
                                     this.winLabel.node.active = true;
                                     this.unscheduleAllCallbacks();
                                 }
                             }
+                            currentPos!.y === this.andarPos!.y ? currentPos = this.baharPos : currentPos = this.andarPos;
                         })
                         .start();
                 }, i)
