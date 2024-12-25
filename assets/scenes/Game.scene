@@ -23,7 +23,7 @@
     "_prefab": null,
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 222
+      "__id__": 227
     },
     "_id": "5caefbce-aaee-43ab-8860-eb1cf8e1ae00"
   },
@@ -48,13 +48,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 216
+        "__id__": 221
       },
       {
-        "__id__": 218
+        "__id__": 223
       },
       {
-        "__id__": 220
+        "__id__": 225
       }
     ],
     "_prefab": null,
@@ -142,7 +142,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 360.5581395348837,
+    "_orthoHeight": 356.90866510538643,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -313,15 +313,18 @@
       },
       {
         "__id__": 194
+      },
+      {
+        "__id__": 214
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 214
+        "__id__": 219
       },
       {
-        "__id__": 215
+        "__id__": 220
       }
     ],
     "_prefab": null,
@@ -5399,6 +5402,123 @@
     "fileId": "20UGQn4U9GUoln0NJQTkbG"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "winLabel",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 10
+    },
+    "_children": [],
+    "_active": false,
+    "_components": [
+      {
+        "__id__": 215
+      },
+      {
+        "__id__": 217
+      }
+    ],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_layer": 33554432,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "b2XlUG8QNKN51dGQTs65Mm"
+  },
+  {
+    "__type__": "cc.UITransform",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 214
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 216
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 197.87,
+      "height": 50.4
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_id": "762Qc+LuNMB5kNHpdeeIKw"
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "c68UOAlNhN171Umca6yVvF"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 214
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 218
+    },
+    "_visFlags": 0,
+    "_customMaterial": null,
+    "_srcBlendFactor": 2,
+    "_dstBlendFactor": 4,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 194,
+      "g": 255,
+      "b": 0,
+      "a": 255
+    },
+    "_string": "Andar wins",
+    "_horizontalAlign": 1,
+    "_verticalAlign": 1,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
+    "_fontFamily": "Arial",
+    "_lineHeight": 40,
+    "_overflow": 0,
+    "_enableWrapText": true,
+    "_font": null,
+    "_isSystemFontUsed": true,
+    "_isItalic": false,
+    "_isBold": false,
+    "_isUnderline": false,
+    "_underlineHeight": 2,
+    "_cacheMode": 0,
+    "_id": "edAmI97b5PFoYtj7t8HzrU"
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "2frm37uaJHQr0AEEaYyM82"
+  },
+  {
     "__type__": "cc.UITransform",
     "_name": "",
     "_objFlags": 0,
@@ -5666,6 +5786,9 @@
     "amount": {
       "__id__": 203
     },
+    "winLabel": {
+      "__id__": 217
+    },
     "_id": "738R283WNG0bScEQJeO/vS"
   },
   {
@@ -5677,7 +5800,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 217
+      "__id__": 222
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -5704,7 +5827,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 219
+      "__id__": 224
     },
     "_cameraComponent": {
       "__id__": 4
@@ -5725,7 +5848,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 221
+      "__id__": 226
     },
     "_alignFlags": 45,
     "_target": null,
@@ -5754,16 +5877,16 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 223
+      "__id__": 228
     },
     "shadows": {
-      "__id__": 224
+      "__id__": 229
     },
     "_skybox": {
-      "__id__": 225
+      "__id__": 230
     },
     "fog": {
-      "__id__": 226
+      "__id__": 231
     }
   },
   {

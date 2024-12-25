@@ -27,6 +27,9 @@ export class GameManager extends Component {
     @property(Label)
     amount: Label|null = null
 
+    @property(Label)
+    winLabel: Label|null = null;    
+
     stackStartX = -150;
     cardsGap = 5.7;
 
@@ -45,8 +48,8 @@ export class GameManager extends Component {
            this.Stack!.addChild(cardNode);
         }
 
-        tween(this.Stack?.children[40])
-        .to(0.5, { position: new Vec3(this.Stack?.children[40].position.x, 50, 0)})
+        tween(this.Stack?.children[46])
+        .to(0.5, { position: new Vec3(this.Stack?.children[46].position.x, 50, 0)})
         .to(0.5, { position: new Vec3(this.Openpos!)})
         .delay(3)
         .call(() => this.CardAnimation(1))
@@ -61,10 +64,20 @@ export class GameManager extends Component {
     
                     tween(this.Stack?.children[i])
                     .to(0.5, { position: currentPos!})
-                    .call(() => currentPos!.y === this.andarPos!.y ? currentPos = this.baharPos : currentPos = this.andarPos)
+                    .call(() => {
+                        currentPos!.y === this.andarPos!.y ? currentPos = this.baharPos : currentPos = this.andarPos;
+                        if(this.winLabel) {
+                            if(i == 7) {
+                                this.winLabel.node.active = true;
+                            }
+                        }
+                    })
                     .start();
                 }, i)
             }
+
+            if(i === 7)
+                break;
         }
     }
 }
