@@ -30,6 +30,9 @@ export class GameManager extends Component {
     @property(Label)
     winLabel: Label | null = null;
 
+    @property(Label)
+    youWonLabel: Label | null = null;
+
     stackStartX = -150;
     cardsGap = 5.7;
     shuffleInd = -1;
@@ -76,12 +79,27 @@ export class GameManager extends Component {
                         .call(() => {
                             let currentCardName = this.Stack?.children[i].getComponent(Sprite)?.spriteFrame?.name.split("_")[2] as string;
                             if (currentCardName === this.pickedCard) {
-                                if (this.winLabel) {
+                                let choice = localStorage.getItem("choice");
+                                let betString = localStorage.getItem("bet");
+                                if (this.winLabel && this.youWonLabel) {
+                                    this.youWonLabel.node.active = true;
                                     if(this.Stack?.children[i].position.y === this.andarPos!.y) {
                                         this.winLabel.string = "Andar wins"
+                                        if(choice === "andar") {
+                                            this.youWonLabel!.string = `You won ${betString}`
+                                        }
+                                        else {
+                                            this.youWonLabel!.string = `You lost ${betString}`
+                                        }
                                     }
                                     else {
                                         this.winLabel.string = "Bahar wins";
+                                        if(choice === "bahar") {
+                                            this.youWonLabel!.string = `You won ${betString}`
+                                        }
+                                        else {
+                                            this.youWonLabel!.string = `You lost ${betString}`
+                                        }
                                     }
                                     this.winLabel.node.active = true;
                                     this.unscheduleAllCallbacks();
