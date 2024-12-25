@@ -53,7 +53,7 @@ export class GameManager extends Component {
             this.Stack!.addChild(cardNode);
         }
 
-        this.shuffleInd = 51;
+        this.shuffleInd = 3;
         this.pickedCard = this.Stack?.children[this.shuffleInd].getComponent(Sprite)?.spriteFrame?.name.split("_")[2] as string;
 
 
@@ -130,12 +130,12 @@ export class GameManager extends Component {
                     if (currentChoice === "andar") {
                         if (choice === "andar") {
                             if (isWin) {
-                                if(i < this.shuffleInd) return false;
-                                return true;
+                                if(i < this.shuffleInd) return true;
+                                return false;
                             }
                             if(i < this.shuffleInd)
-                                return true;
-                            return false;
+                                return false;
+                            return true
                         }
 
                     }
