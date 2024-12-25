@@ -131,6 +131,7 @@ export class GameManager extends Component {
                     if (currentChoice === "andar") {
                         if (choice === "andar") {
                             if (isWin) {
+                                if(i < this.shuffleInd) return false;
                                 return true;
                             };
                             return false;
@@ -139,6 +140,7 @@ export class GameManager extends Component {
                     }
                     else {
                             if (choice === "bahar") {
+                                if(i < this.shuffleInd) return false;
                                 if (isWin) return true;
                                 return false;
                             }
