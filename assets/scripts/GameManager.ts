@@ -128,7 +128,7 @@ export class GameManager extends Component {
                 let currentCardName = this.Stack?.children[i].getComponent(Sprite)?.spriteFrame?.name.split("_")[2] as string;
                 if (currentCardName === this.pickedCard) {
                     let choice = localStorage.getItem("choice");
-                    if (choice === "andar") {
+                    if (currentChoice === "andar") {
                         if (choice === "andar") {
                             if (isWin) {
                                 return true;
