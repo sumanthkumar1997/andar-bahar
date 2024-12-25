@@ -63,8 +63,15 @@ export class GameManager extends Component {
             .to(0.5, { position: new Vec3(this.Openpos!) })
             .delay(3)
             .call(() => {
-                this.CardAnimation(1)
+                let strtIdx = 2;
+                let isWin = this.setupWin(strtIdx, true);
 
+                if(isWin) {
+                    this.CardAnimation(strtIdx);
+                }
+                else {
+                    this.CardAnimation(strtIdx - 1)
+                }
             })
             .start()
     }
@@ -109,6 +116,36 @@ export class GameManager extends Component {
                         })
                         .start();
                 }, i)
+            }
+        }
+    }
+
+    setupWin(strtIdx: number, isWin: boolean) {
+        let currentChoice = "andar";
+
+        for (let i = strtIdx; i < (strtIdx + 52); i++) {
+            if (i != this.shuffleInd) {
+                let currentCardName = this.Stack?.children[i].getComponent(Sprite)?.spriteFrame?.name.split("_")[2] as string;
+                if (currentCardName === this.pickedCard) {
+                    let choice = localStorage.getItem("choice");
+                    if (currentChoice === "andar") {
+                        if (choice === "andar") {
+                            if (isWin) {
+                                return true;
+                            };
+                            return false;
+                        }
+
+                    }
+                    else {
+                            if (choice === "bahar") {
+                                if (isWin) return true;
+                                return false;
+                            }
+                        }
+
+                }
+                currentChoice = currentChoice === "andar" ? "bahar": "andar"
             }
         }
     }
