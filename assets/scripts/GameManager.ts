@@ -53,9 +53,8 @@ export class GameManager extends Component {
             this.Stack!.addChild(cardNode);
         }
 
-        this.shuffleInd = Math.floor(1 + Math.random() * 52);
+        this.shuffleInd = 51;
         this.pickedCard = this.Stack?.children[this.shuffleInd].getComponent(Sprite)?.spriteFrame?.name.split("_")[2] as string;
-        console.log(this.pickedCard);
 
 
         tween(this.Stack?.children[this.shuffleInd])
@@ -134,9 +133,8 @@ export class GameManager extends Component {
                                 if(i < this.shuffleInd) return false;
                                 return true;
                             }
-                            else if(i < this.shuffleInd) {
+                            if(i < this.shuffleInd)
                                 return true;
-                            }
                             return false;
                         }
 
@@ -145,11 +143,11 @@ export class GameManager extends Component {
                             if (choice === "bahar") {
                                 if(i < this.shuffleInd) return false;
                                 if (isWin) {
-                                    return true
-                                }
-                                else if( i < this.shuffleInd) {
+                                    if(i < this.shuffleInd) return false;
                                     return true;
                                 }
+                                if(i < this.shuffleInd)
+                                    return true;
                                 return false;
                             }
                         }
