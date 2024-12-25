@@ -77,7 +77,7 @@ export class GameManager extends Component {
                             let currentCardName = this.Stack?.children[i].getComponent(Sprite)?.spriteFrame?.name.split("_")[2] as string;
                             if (currentCardName === this.pickedCard) {
                                 if (this.winLabel) {
-                                    if(currentPos!.y === this.andarPos!.y) {
+                                    if(this.Stack?.children[i].position.y === this.andarPos!.y) {
                                         this.winLabel.string = "Andar wins"
                                     }
                                     else {
